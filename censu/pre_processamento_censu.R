@@ -25,4 +25,11 @@ base[, 3] = scale(base[, 3])
 base[, 5] = scale(base[, 5])
 base[, 11:13] = scale(base[, 11:13])   
 
+# INSTALAÇÃO DO PACOTE #
+library(caTools)
+set.seed(1)
+divisao = sample.split(base$income, SplitRatio = 0.85)
+base_treinamento = subset(base, divisao == TRUE)
+base_teste = subset(base, divisao == FALSE)
+
 

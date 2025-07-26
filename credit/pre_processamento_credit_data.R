@@ -30,3 +30,12 @@ base[is.na(base$age), ]
 
 # ESCALONAMENTO DE ATRIBUTOS #
 base[, 1:3] = scale(base[, 1:3])
+
+# INSTALAÇÃO DO PACOTE PARA DIVISÃO DOS DADOS #
+install.packages('caTools')
+library(caTools)
+set.seed(1)
+
+divisao = sample.split(base$default, SplitRatio = 0.75)
+base_treinamento = subset(base, divisao == TRUE)
+base_teste = subset(base, divisao == FALSE)
